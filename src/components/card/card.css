@@ -1,3 +1,12 @@
 #card {
     border: solid;
 }
+
+#card textarea {
+    width: 100%;
+}
+
+.card-header{
+	background-color: silver;
+	border: 0;
+}
