@@ -9,4 +9,34 @@
 .card-header{
 	background-color: silver;
 	border: 0;
+	transition:300ms;
+	padding: 0px;
+	display: flex;
+}
+
+.card-header:hover{
+	background-color: gray;
+	
+}
+
+.card-header > a{
+	width: 100%;
+	padding: 10px;
+}
+
+.card-header .options {
+	width: 85px;
+	padding: 10px;
+}
+
+.card-header .options a:first-of-type{
+	margin-right: 5px;
+}
+
+.fa-trash-alt:hover{
+	color: red;
+}
+
+.fa-edit:hover{
+	color: green;
 }
