@@ -7,7 +7,13 @@
                    new Card(6,'Pergunta6', 'Resposta6'),
                );
 
-    foreach($cards as $card){
-        include(__DIR__ .'/../card/card.php');
+    if($_SERVER['REQUEST_URI'] == '/profile'){
+        include(__DIR__ .'/../profile/profile.php');
+    }else if($_SERVER['REQUEST_URI'] == '/config'){
+        include(__DIR__ .'/../config/config.php');
+    }else{
+        foreach($cards as $card){
+            include(__DIR__ .'/../card/card.php');
+        }
     }
 ?>

@@ -1,5 +1,5 @@
-<style> <?php include_once 'card.css'; ?> </style>
-
+<style><?php include_once 'card.css'; ?></style>
+<script><?php include_once 'card.js'; ?></script>
 <div class="card">
     <div class="card-header">
         <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree-<?php echo $card->id ?>">
@@ -7,15 +7,14 @@
         </a>
 
         <div class="options">
-            <a href="#"><i class="fas fa-edit"></i></a>
-            <a href="#"><i class="fas fa-trash-alt"></i></a>
+            <a href="javascript:void(0)"><i class="fas fa-edit"></i></a>
+            <a href="javascript:void(0)" onclick="deleteCard(<?php echo $card->id ?>)" ><i class="fas fa-trash-alt"></i></a>
         </div>
     </div>
 
-    <div id="collapseThree-<?php echo $card->id ?>" class="collapse" data-parent="#accordion">
+    <div id="collapseThree-<?php echo $card->id ?>" class="collapse">
         <div class="card-body">
             <?php echo $card->resposta ?>
         </div>
     </div>
 </div>
-
