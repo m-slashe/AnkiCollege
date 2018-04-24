@@ -1,10 +1,9 @@
 <style> <?php include_once 'menu.css'; ?> </style>
 <div id="menu">
 
-    <div class="avatar">
-        <img class="avatar-img" src="src/assets/profile.png" alt="Avatar" align="middle"/>
-        <div class="middle">
-        <div class="text"></div>
+    <div class="avatar-container">
+        <img class="img" src="src/assets/profile.png" alt="Avatar" align="middle"/>
+        <div class="middle">Teste</div>
       </div>
     </div>
 
