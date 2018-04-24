@@ -1,7 +1,7 @@
-$(document).ready(function () {
+function editCard(id){
+    alert('Card : ' + id + ' edited');
+}
 
-	window.deleteCard = function(id) {
-		alert('Card : ' + id + ' deleted');
-	}
-
-});
+function deleteCard(id){
+    alert('Card : ' + id + ' deleted');
+}

@@ -4,16 +4,17 @@ nav {
 
 #app-menu {
     background-color: grey;
-    border: solid;
     height: 90%;
     padding: 0;
 }
 
 #app-content {
     background-color: white;
-    border: solid;
+    padding: 0;
+    padding-left: 1px;
+    padding-right: 1px;
     height: 90%;
-    padding: 0
+
 }
 
 .scrollbar::-webkit-scrollbar-track

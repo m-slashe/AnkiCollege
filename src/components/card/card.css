@@ -7,7 +7,7 @@
 }
 
 .card-header{
-	background-color: silver;
+	background-color: #c6c8ca;
 	border: 0;
 	transition:300ms;
 	padding: 0;
@@ -15,13 +15,14 @@
 }
 
 .card-header:hover{
-	background-color: gray;
-	
+	background-color: #DDDDDD;
 }
 
 .card-header > a{
 	width: 100%;
 	padding: 10px;
+	color: #1b1e21;
+	font-style: italic;
 }
 
 .card-header .options {
@@ -33,10 +34,18 @@
 	margin-right: 5px;
 }
 
+.fa-trash-alt{
+	color: #721c24;
+}
+
 .fa-trash-alt:hover{
 	color: red;
 }
 
+.fa-edit{
+	color: #1c7430;
+}
+
 .fa-edit:hover{
-	color: green;
+	color: #55FF55;
 }

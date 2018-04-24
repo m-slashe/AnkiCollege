@@ -7,7 +7,7 @@
         </a>
 
         <div class="options">
-            <a href="javascript:void(0)"><i class="fas fa-edit"></i></a>
+            <a href="javascript:void(0)" onclick="editCard(<?php echo $card->id ?>)" ><i class="fas fa-edit"></i></a>
             <a href="javascript:void(0)" onclick="deleteCard(<?php echo $card->id ?>)" ><i class="fas fa-trash-alt"></i></a>
         </div>
     </div>
