@@ -4,7 +4,6 @@
     <div class="avatar-container">
         <img class="img" src="src/assets/profile.png" alt="Avatar" align="middle"/>
         <div class="middle">Teste</div>
-      </div>
     </div>
 
     <div class="list-group panel" id="sidebar">

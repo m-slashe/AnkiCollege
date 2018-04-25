@@ -11,10 +11,9 @@ nav {
 #app-content {
     background-color: white;
     padding: 0;
-    padding-left: 1px;
-    padding-right: 1px;
     height: 90%;
-
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .scrollbar::-webkit-scrollbar-track
