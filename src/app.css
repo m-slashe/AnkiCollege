@@ -1,10 +1,10 @@
 nav {
-    height: 10%;
+    height: 8%;
 }
 
 #app-menu {
     background-color: grey;
-    height: 90%;
+    height: 92%;
     padding: 0;
 }
 
@@ -13,8 +13,13 @@ nav {
     padding: 0;
     padding-left: 1px;
     padding-right: 1px;
-    height: 90%;
+    height: 92%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 
+#app-body{
+    overflow: hidden;
 }
 
 .scrollbar::-webkit-scrollbar-track
