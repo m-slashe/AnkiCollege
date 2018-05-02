@@ -33,5 +33,8 @@
         <a class="list-group-item list-group-item-dark" data-parent="#sidebar" href="/index">
             Card Test
         </a>
+        <a class="list-group-item list-group-item-dark" data-parent="#sidebar" href="/study">
+            Start
+        </a>
     </div>
 </div>
