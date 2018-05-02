@@ -7,5 +7,8 @@
 </head>
 
 <?php
-include 'src/classes/card.php';
-include 'src/app.php';
+	define( 'DS', DIRECTORY_SEPARATOR);
+	define( 'ABSPATH', dirname(__FILE__) . DS );
+	require_once 'autoload.php';
+	include_once 'src/app.php';
+?>

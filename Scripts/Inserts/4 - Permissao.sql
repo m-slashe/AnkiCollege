@@ -1,0 +1,2 @@
+insert into permissao (descricao , leitura , escrita , expulsao , aprovacao) values ('Administrador' , 1 , 1 , 1 , 1);
+insert into permissao (descricao , leitura , escrita , expulsao , aprovacao) values ('Comum'         , 1 , 0 , 0 , 0);
