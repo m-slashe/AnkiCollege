@@ -1,3 +1,4 @@
+<?php $card = $params ?>
 <style><?php include_once 'card.css' ?></style>
 <script><?php include_once 'card.js' ?></script>
 <div class="card">
