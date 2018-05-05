@@ -32,5 +32,19 @@
         <a class="list-group-item list-group-item-dark" data-parent="#sidebar" href="/index">
             Card Test
         </a>
+        <a class="list-group-item list-group-item-dark collapsed" data-toggle="collapse" data-parent="#sidebar" href="#forms">
+            FORMS <span class="badge badge-dark badge-pill">3</span>
+        </a>
+        <div class="collapse" id="forms">
+            <a class="list-group-item list-group-item-dark subitem" data-parent="#sidebar" href="formUser">
+                User Form
+            </a>
+            <a class="list-group-item list-group-item-dark subitem" data-parent="#sidebar" href="formGroup">
+                Group Form
+            </a>
+            <a class="list-group-item list-group-item-dark subitem" data-parent="#sidebar" href="formUserGroup">
+                User Group Form
+            </a>
+        </div>
     </div>
 </div>

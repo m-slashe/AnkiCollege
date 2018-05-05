@@ -6,6 +6,8 @@ nav {
     background-color: grey;
     height: 92%;
     padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #app-content {

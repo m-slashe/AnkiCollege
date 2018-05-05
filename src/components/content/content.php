@@ -22,6 +22,22 @@
         include(ABSPATH .'src' . DS . 'components' . DS . 'teste' . DS . 'teste.php');
         break;
 
+      case '/formUser':
+        include(ABSPATH .'src' . DS . 'components' . DS . 'forms' . DS . 'usuarioForm.php');
+        break;
+
+      case '/formGroup':
+        include(ABSPATH .'src' . DS . 'components' . DS . 'forms' . DS . 'grupoForm.php');
+        break;
+
+      case '/formUserGroup':
+        include(ABSPATH .'src' . DS . 'components' . DS . 'forms' . DS . 'usuarioGrupoForm.php');
+        break;
+
+      case '/insert':
+        include(ABSPATH .'src' . DS . 'components' . DS . 'forms' . DS . 'insert.php');
+        break;
+
       default:
         foreach($cards as $card){
             include(ABSPATH .'src' . DS . 'components' . DS . 'card' . DS . 'card.php');
