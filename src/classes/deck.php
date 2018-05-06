@@ -1,11 +1,22 @@
 <?php
 
 class Deck {
+    protected $id;
+    protected $categoria;
+    protected $nome;
+    protected $perguntas;
+    protected $usuarios;
+    protected $grupos;
 
-    function __construct($id, $pergunta, $resposta){
-        $this->id = $id;
-        $this->pergunta = $pergunta;
-        $this->resposta = $resposta;
+    function __construct($perguntas, $categoria, $nome){
+        $this->perguntas=$perguntas;
+        $this->categoria=$categoria;
+        $this->nome=$nome;
     }
 
+    function escreverPerguntas(){
+        foreach($this->perguntas as $pergunta){
+            includeComponent('card', $pergunta);
+        }
+    }
 }
