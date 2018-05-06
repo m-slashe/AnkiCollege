@@ -14,7 +14,7 @@
             <i class="fas fa-address-book"></i> Decks <span class="badge badge-dark badge-pill">1</span>
         </a>
         <div class="collapse" id="decks">
-            <a class="list-group-item list-group-item-dark subitem" data-parent="#sidebar" href="/deck/1">Deck1</a>
+            <a class="list-group-item list-group-item-dark subitem" data-parent="#sidebar" href="/deck?id=1">Deck1</a>
         </div>
         <a class="list-group-item list-group-item-dark collapsed" data-toggle="collapse" data-parent="#sidebar" href="#grupos">
             <i class="fas fa-users"></i> Grupos <span class="badge badge-dark badge-pill">2</span>

@@ -54,6 +54,7 @@ CREATE TABLE Deck_Grupo (
 CREATE TABLE Deck (
 	deckId bigint NOT NULL AUTO_INCREMENT,
 	categoriaId bigint NOT NULL,
+	nome varchar(20) NOT NULL,
 	PRIMARY KEY (deckId)
 );
 

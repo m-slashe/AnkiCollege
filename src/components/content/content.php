@@ -8,8 +8,8 @@
                    new Card(6,'Pergunta6', 'Resposta6'),
                );
 
-    $request_url = $_SERVER['REQUEST_URI'];
-    switch ($request_url) {
+    $request_url = explode('?', $_SERVER['REQUEST_URI'], 2);
+    switch ($request_url[0]) {
         case '/profile':
             includeComponent('profile');
             break;
@@ -21,6 +21,9 @@
             break;
         case '/study':
             includeComponent('study', $cards);
+            break;
+        case '/deck':
+            includeComponent('deck');
             break;
         default:
             foreach($cards as $card){
