@@ -9,12 +9,18 @@
         </div>
         <div class="container-fluid" id="app-body">
             <div class="row">
-                <div class="col-md-2" id="app-menu">
-                    <?php include_once 'components/menu/menu.php'; ?>
-                </div>
-                <div class="col-md-10 scrollbar" id="app-content">
-                    <?php include_once 'components/content/content.php'; ?>
-                </div>
+                <?php
+                session_start();
+                if((isset ($_SESSION['login']) == false) and (isset ($_SESSION['senha']) == false))
+                {
+                    unset($_SESSION['login']);
+                    unset($_SESSION['senha']);
+                    include_once 'components/login/login.php';
+                }else{
+                    include_once 'components/menu/menu.php';
+                    include_once 'components/content/content.php';
+                }
+                ?>
             </div>
         </div>
     </body>

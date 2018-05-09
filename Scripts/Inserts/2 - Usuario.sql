@@ -13,4 +13,5 @@ insert into Usuario (nome , sobrenome , email , username , password) values ('Al
 insert into Usuario (nome , sobrenome , email , username , password) values ('Jerrilyn' , 'Alben'    , 'jalbenc@bing.com'        , 'jalbenc'   , md5(concat('MN1T4Vytn', 'jalbenc')));
 insert into Usuario (nome , sobrenome , email , username , password) values ('Melissa'  , 'Samper'   , 'msamperd@desdev.cn'      , 'msamperd'  , md5(concat('dUuMGvprueC', 'msamperd')));
 insert into Usuario (nome , sobrenome , email , username , password) values ('Raddie'   , 'Senton'   , 'rsentone@phpbb.com'      , 'rsentone'  , md5(concat('TuXkJYBxigWd', 'rsentone')));
+insert into Usuario (nome , sobrenome , email , username , password) values ('Rodrigo'  , 'Bressan'  , 'rodrigo@gmail.com'       , 'rodrigo'   , md5(concat('password', 'rodrigo')));
 	

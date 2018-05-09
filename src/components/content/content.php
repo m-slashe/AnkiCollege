@@ -1,3 +1,4 @@
+<div class="col-md-10 scrollbar" id="app-content">
 <?php
     include_once ABSPATH.'src'.DS.'classes'.DS.'util.php';
     $cards = array(new Card(1,'Quanto é 1 + 1?', '2'),
@@ -25,8 +26,13 @@
         case '/deck':
             includeComponent('deck');
             break;
+        case '/login':
+            includeComponent('login');
+            break;
         default:
             foreach($cards as $card){
                 includeComponent('card', $card);
             }
     }
+    ?>
+</div>
