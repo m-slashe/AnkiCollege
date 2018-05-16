@@ -1,20 +1,7 @@
-CREATE TABLE Pergunta (
-	perguntaId bigint NOT NULL AUTO_INCREMENT,
-	respostaId bigint NOT NULL,
-	deckId bigint NOT NULL,
-	texto varchar(500) NOT NULL,
-	criador bigint NOT NULL,
-	dataCriacao DATETIME NOT NULL,
-	PRIMARY KEY (perguntaId)
-);
+drop database anki2;
+create database anki2;
+use anki2;
 
-CREATE TABLE Grupo (
-	grupoId bigint NOT NULL AUTO_INCREMENT,
-	nome varchar(30) NOT NULL UNIQUE,
-	criacao DATETIME NOT NULL UNIQUE,
-	descricao varchar(200) NOT NULL,
-	PRIMARY KEY (grupoId)
-);
 
 CREATE TABLE Usuario (
 	usuarioId bigint NOT NULL AUTO_INCREMENT,
@@ -26,35 +13,10 @@ CREATE TABLE Usuario (
 	PRIMARY KEY (usuarioId)
 );
 
-CREATE TABLE Resposta (
-	respostaId bigint NOT NULL AUTO_INCREMENT,
-	texto longblob NOT NULL,
-	PRIMARY KEY (respostaId)
-);
-
-CREATE TABLE Usuario_Grupo (
-	usuarioId bigint NOT NULL,
-	grupoId bigint NOT NULL,
-	permissaoId bigint NOT NULL,
-    CONSTRAINT PK_Usuario_Grupo PRIMARY KEY (usuarioId, grupoId)
-);
-
-CREATE TABLE Deck_Usuario (
-	usuarioId bigint NOT NULL,
-	deckId bigint NOT NULL,
-	CONSTRAINT PK_Deck_Usuario PRIMARY KEY (usuarioId, deckId)
-);
-
-CREATE TABLE Deck_Grupo (
-	grupoId bigint NOT NULL,
-	deckId bigint NOT NULL,
-	CONSTRAINT PK_Deck_Grupo PRIMARY KEY (grupoId, deckId)
-);
-
 CREATE TABLE Deck (
 	deckId bigint NOT NULL AUTO_INCREMENT,
 	categoriaId bigint NOT NULL,
-	descricao varchar(200) NOT NULL,
+	nome varchar(20) NOT NULL,
 	PRIMARY KEY (deckId)
 );
 
@@ -72,6 +34,49 @@ CREATE TABLE Permissao (
 	expulsao char(1) NOT NULL,
 	aprovacao char(1) NOT NULL,
 	PRIMARY KEY (permissaoId)
+);
+
+CREATE TABLE Pergunta (
+	perguntaId bigint NOT NULL AUTO_INCREMENT,
+	respostaId bigint NOT NULL,
+	deckId bigint NOT NULL,
+	texto text NOT NULL,
+	criador bigint NOT NULL,
+	dataCriacao DATETIME NOT NULL,
+	PRIMARY KEY (perguntaId)
+);
+
+CREATE TABLE Resposta (
+	respostaId bigint NOT NULL AUTO_INCREMENT,
+	texto text NOT NULL,
+	PRIMARY KEY (respostaId)
+);
+
+CREATE TABLE Grupo (
+	grupoId bigint NOT NULL AUTO_INCREMENT,
+	nome varchar(30) NOT NULL UNIQUE,
+	criacao DATETIME NOT NULL UNIQUE,
+	descricao varchar(200) NOT NULL,
+	PRIMARY KEY (grupoId)
+);
+
+CREATE TABLE Usuario_Grupo (
+	usuarioId bigint NOT NULL,
+	grupoId bigint NOT NULL,
+	permissaoId bigint NOT NULL,
+  CONSTRAINT PK_Usuario_Grupo PRIMARY KEY (usuarioId, grupoId)
+);
+
+CREATE TABLE Deck_Usuario (
+	usuarioId bigint NOT NULL,
+	deckId bigint NOT NULL,
+	CONSTRAINT PK_Deck_Usuario PRIMARY KEY (usuarioId, deckId)
+);
+
+CREATE TABLE Deck_Grupo (
+	grupoId bigint NOT NULL,
+	deckId bigint NOT NULL,
+	CONSTRAINT PK_Deck_Grupo PRIMARY KEY (grupoId, deckId)
 );
 
 ALTER TABLE Pergunta ADD CONSTRAINT Pergunta_fk0 FOREIGN KEY (respostaId) REFERENCES Resposta(respostaId);

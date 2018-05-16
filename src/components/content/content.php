@@ -1,6 +1,7 @@
+<div class="col-md-10 scrollbar" id="app-content">
 <?php
-
-    $cards = array(new Card(1,'Pergunta1', 'Resposta1'),
+    include_once ABSPATH.'src'.DS.'classes'.DS.'util.php';
+    $cards = array(new Card(1,'Quanto é 1 + 1?', '2'),
                    new Card(2,'Pergunta2', 'Resposta2'),
                    new Card(3,'Pergunta3', 'Resposta3'),
                    new Card(4,'Pergunta4', 'Resposta4'),
@@ -8,39 +9,30 @@
                    new Card(6,'Pergunta6', 'Resposta6'),
                );
 
-    $request_url = $_SERVER['REQUEST_URI'];
-    switch ($request_url) {
-      case '/profile':
-        include(ABSPATH . 'src' . DS . 'components' . DS . 'profile' . DS . 'profile.php');
-        break;
-
-      case '/config':
-        include(ABSPATH .'src' . DS . 'components' . DS . 'config' . DS . 'config.php');
-        break;
-
-      case '/teste':
-        include(ABSPATH .'src' . DS . 'components' . DS . 'teste' . DS . 'teste.php');
-        break;
-
-      case '/formUser':
-        include(ABSPATH .'src' . DS . 'components' . DS . 'forms' . DS . 'usuarioForm.php');
-        break;
-
-      case '/formGroup':
-        include(ABSPATH .'src' . DS . 'components' . DS . 'forms' . DS . 'grupoForm.php');
-        break;
-
-      case '/formUserGroup':
-        include(ABSPATH .'src' . DS . 'components' . DS . 'forms' . DS . 'usuarioGrupoForm.php');
-        break;
-
-      case '/insert':
-        include(ABSPATH .'src' . DS . 'components' . DS . 'forms' . DS . 'insert.php');
-        break;
-
-      default:
-        foreach($cards as $card){
-            include(ABSPATH .'src' . DS . 'components' . DS . 'card' . DS . 'card.php');
-        }
-        break;
+    $request_url = explode('?', $_SERVER['REQUEST_URI'], 2);
+    switch ($request_url[0]) {
+        case '/profile':
+            includeComponent('profile');
+            break;
+        case '/config':
+            includeComponent('config');
+            break;
+        case '/teste':
+            includeComponent('teste');
+            break;
+        case '/study':
+            includeComponent('study', $cards);
+            break;
+        case '/Deck':
+            includeComponent('deck');
+            break;
+        case '/login':
+            includeComponent('login');
+            break;
+        default:
+            foreach($cards as $card){
+                includeComponent('card', $card);
+            }
     }
+    ?>
+</div>

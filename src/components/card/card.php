@@ -1,5 +1,6 @@
-<style><?php include_once 'card.css' ?></style>
-<script><?php include_once 'card.js' ?></script>
+<?php $card = $params ?>
+<?php include_once 'card.css' ?>
+<?php include_once 'card.js' ?>
 <div class="card">
     <div class="card-header">
         <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree-<?php echo $card->id ?>">

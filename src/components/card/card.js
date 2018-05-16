@@ -1,3 +1,5 @@
+<script>
+
 function editCard(id){
     alert('Card : ' + id + ' edited');
 }
@@ -5,3 +7,5 @@ function editCard(id){
 function deleteCard(id){
     alert('Card : ' + id + ' deleted');
 }
+
+</script>

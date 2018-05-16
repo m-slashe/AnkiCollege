@@ -4,10 +4,8 @@ nav {
 
 #app-menu {
     background-color: grey;
-    height: 92%;
+    height: 100%;
     padding: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
 }
 
 #app-content {
@@ -15,7 +13,7 @@ nav {
     padding: 0;
     padding-left: 1px;
     padding-right: 1px;
-    height: 92%;
+    height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
 }
