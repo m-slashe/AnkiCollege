@@ -2,7 +2,7 @@
 
 class Conexao {
 
-    public static $instance;
+    private static $instance;
 
     private function __construct() {
     }
