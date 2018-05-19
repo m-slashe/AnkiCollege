@@ -1,47 +1,28 @@
 <?php
 
-class GroupDAO{
+class GroupDAO extends AbstractDAO{
 
-	function __construct(){
-		$this->conn = Conexao::getInstance();
+	public function getByIdStatement(){
+		return "select nome from grupo where grupoId=:id;";
 	}
 
-	public function getGroupById($id){
-		$perguntas = [];
-		$sql = " select nome  
-	                    from grupo
-	                    where grupoId=:GrupoID;";
-	    $stmt = $this->conn->prepare( $sql );
-	    //Parametros para o bindParam
-	    //PDO::PARAM_BOOL
-	    //PDO::PARAM_NULL
-	    //PDO::PARAM_INT
-	    //PDO::PARAM_STR (default)
-	    //PDO::PARAM_LOB
-	    $stmt->bindParam( ':GrupoID', $id, PDO::PARAM_INT);
-	    $result = $stmt->execute();
-	    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);	//FETCH_ASSOC retorna apenas o map (Key=>Value)
-
+	public function getById($id){
+		$rows = parent::getById($id);
 	    foreach ($rows as $row) {
 	        $nome = $row['nome'];
 	    }
 	    return new Grupo($nome, $id);
 	}
 
-	public function getGroupsByUser($userId){
-		$perguntas = [];
-		$sql = " select grupoId  
-	                    from usuario_grupo
-	                    where usuarioId=:UserID;";
-	    $stmt = $this->conn->prepare( $sql );
-	    $stmt->bindParam( ':UserID', $userId, PDO::PARAM_INT);
-	    $result = $stmt->execute();
-	    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	public function getByUserStatement(){
+		return "select grupoId from usuario_grupo where usuarioId=:id;";
+	}
 
+	public function getByUser($id){
+		$rows = parent::getByUser($id);
 	    $grupos = [];
-
 	    foreach ($rows as $row) {
-	        array_push($grupos, $this->getGroupById($row['grupoId']));
+	        array_push($grupos, $this->getById($row['grupoId']));
 	    }
 	    return $grupos;
 	}

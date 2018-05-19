@@ -1,9 +1,13 @@
 <div class="col-md-2" id="app-menu">
     <?php include_once 'menu.css'; ?> 
     <?php include_once ABSPATH.'src'.DS.'classes'.DS.'util.php'; ?>
+    <?php  
+        $userDao = new UserDAO();
+        $user = $userDao->getUserById($_SESSION['id']);
+    ?>
     <div id="menu">
         <div class="avatar-container">
-            <img class="img" src="src/assets/profile.png" alt="Avatar" align="middle"/>
+            <img class="img" src="src/assets/avatars/1.png" alt="Avatar" align="middle"/>
             <div class="middle">Escolher Imagem</div>
         </div>
 
@@ -11,14 +15,9 @@
             <a class="list-group-item list-group-item-dark" href="/profile">
                 <i class="fas fa-user-circle"></i> MyProfile
             </a>
-            <?php  
-                $userDao = new UserDAO();
-
-                $user = $userDao->getUserById($_SESSION['id']);
-
+            <?php      
                 includeMenuComponent('Deck',$user->getDecks(),'<i class="fas fa-address-book"></i>');
                 includeMenuComponent('Grupo',$user->getGrupos(),'<i class="fas fa-users"></i>');
-
             ?>
             <a class="list-group-item list-group-item-dark" data-parent="#sidebar" href="/config">
                 <i class="fas fa-cog"></i> Settings

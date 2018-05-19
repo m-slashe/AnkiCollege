@@ -1,14 +1,9 @@
 <?php
 
-class DeckDAO{
+class DeckDAO extends AbstractDAO{
 
-	function __construct(){
-		$this->conn = Conexao::getInstance();
-	}
-
-	public function getDeckById($id){
-		$perguntas = [];
-		$sql = " select d.nome nome,
+	public function getByIdStatement(){
+		return "select d.nome nome,
 						d.deckId,
 	                    c.nome categoria,
 	                    p.perguntaId perguntaId,
@@ -20,18 +15,12 @@ class DeckDAO{
 	                    inner join anki2.resposta r  using(respostaId)  
 	                    inner join anki2.usuario u  on u.usuarioId = p.criador  
 	                    inner join anki2.categoria c  using(categoriaId)
-	                    where d.deckId=:DeckID;";
-	    $stmt = $this->conn->prepare( $sql );
-	    //Parametros para o bindParam
-	    //PDO::PARAM_BOOL
-	    //PDO::PARAM_NULL
-	    //PDO::PARAM_INT
-	    //PDO::PARAM_STR (default)
-	    //PDO::PARAM_LOB
-	    $stmt->bindParam( ':DeckID', $id, PDO::PARAM_INT);
-	    $result = $stmt->execute();
-	    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);	//FETCH_ASSOC retorna apenas o map (Key=>Value)
+	                    where d.deckId=:id;";
+	}
 
+	public function getById($id){
+		$rows = parent::getById($id);
+		$perguntas = [];
 	    foreach ($rows as $row) {
 	        array_push($perguntas,new Card($row['perguntaId'],$row['pergunta'],$row['resposta']));
 	        $categoria = $row['categoria'];
@@ -41,20 +30,16 @@ class DeckDAO{
 	    return new Deck($perguntas, $categoria, $nome, $id);
 	}
 
-	public function getDecksByUser($userId){
-		$perguntas = [];
-		$sql = " select deckId  
-	                    from deck_usuario
-	                    where usuarioId=:UserID;";
-	    $stmt = $this->conn->prepare( $sql );
-	    $stmt->bindParam( ':UserID', $userId, PDO::PARAM_INT);
-	    $result = $stmt->execute();
-	    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	public function getByUserStatement(){
+		return "select deckId from deck_usuario where usuarioId=:id;";
+	}
 
+	public function getByUser($id){
+		$rows = parent::getByUser($id);
 	    $decks = [];
 
 	    foreach ($rows as $row) {
-	        array_push($decks, $this->getDeckById($row['deckId']));
+	        array_push($decks, $this->getById($row['deckId']));
 	    }
 	    return $decks;
 	}

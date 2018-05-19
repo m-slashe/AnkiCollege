@@ -29,6 +29,9 @@
         case '/login':
             includeComponent('login');
             break;
+        case '/addpergunta':
+            includeForm('pergunta');
+            break;
         default:
             foreach($cards as $card){
                 includeComponent('card', $card);

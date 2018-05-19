@@ -7,7 +7,7 @@
         <div class="container-fluid" id="app-body">
             <div class="row">
                 <?php
-                session_start();
+
                 if((isset ($_SESSION['login']) == false) and (isset ($_SESSION['senha']) == false))
                 {
                     unset($_SESSION['login']);
