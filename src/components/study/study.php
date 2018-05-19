@@ -3,7 +3,7 @@
 <script><?php include_once 'study.js' ?></script>
 <div id="study">
     <div id="pergunta"><?php echo $cards[0]->pergunta ?></div>
-    <div id="resposta" style="display: none"><?php echo $cards[0]->resposta ?></div>
+    <div id="resposta"><?php echo $cards[0]->resposta ?></div>
     <div class="container align-bottom">
         <div id="button-show-answer" class="row">
             <button class="btn btn-dark" style="width: 100%" onclick="verResposta()">Ver resposta</button>

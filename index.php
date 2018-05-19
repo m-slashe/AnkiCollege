@@ -7,8 +7,7 @@
 </head>
 
 <?php
-	define( 'DS', DIRECTORY_SEPARATOR);
-	define( 'ABSPATH', dirname(__FILE__) . DS );
-	require_once 'autoload.php';
+	include_once 'src/config.php';
+	require_once 'src/autoload.php';
 	include_once 'src/app.php';
 ?>
