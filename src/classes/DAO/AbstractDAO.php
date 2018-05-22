@@ -2,10 +2,6 @@
 
 abstract class AbstractDAO{
 
-	function __construct(){
-		$this->conn = Conexao::getInstance();
-	}
-
 	public abstract function getByIdStatement();
 	public abstract function getByUserStatement();
 

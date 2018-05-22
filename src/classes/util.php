@@ -4,7 +4,7 @@ function includeComponent($component, $params=null){
     include(ABSPATH . 'src' . DS . 'components' . DS . $component . DS . $component . '.php');
 }
 
-function includeForm($component, $params=null){
+function includeForm($component){
     include(ABSPATH . 'src' . DS . 'components' . DS . 'form' . DS . $component . '.php');
 }
 
