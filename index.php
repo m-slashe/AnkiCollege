@@ -1,6 +1,5 @@
 <?php
-    define( 'DS', DIRECTORY_SEPARATOR);
-    define( 'ABSPATH', dirname(__FILE__) . DS );
+    include_once 'config.php';
     session_start();
 ?>
 <head>
@@ -13,7 +12,7 @@
 </head>
 
 <?php
-    require_once 'autoload.php';
+    include_once 'src/autoload.php';
 	include_once 'src/app.php';
 ?>
 
