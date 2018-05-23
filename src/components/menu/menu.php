@@ -4,10 +4,11 @@
     <?php  
         $userDao = new UserDAO();
         $user = $userDao->getUserById($_SESSION['id']);
+        $_SESSION['user']=$user;
     ?>
     <div id="menu">
         <div class="avatar-container">
-            <img class="img" src="src/assets/avatars/1.png" alt="Avatar" align="middle"/>
+            <img class="img" src="<?php echo HOST?>src/assets/avatars/1.png" alt="Avatar" align="middle"/>
             <div class="middle">Escolher Imagem</div>
         </div>
 

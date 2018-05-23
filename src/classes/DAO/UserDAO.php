@@ -14,13 +14,10 @@ class UserDAO extends AbstractDAO {
 	public function getByUserStatement() {}
 
 	public function getUserById($id){
-		$decks = [];
-		$grupos = [];
 		$rows = parent::getById($id);
 
 		$row = $rows[0];
 
-		$nome = $row['nome'];
         $email = $row['email'];
         $username = $row['username'];
 

@@ -8,7 +8,7 @@
           if (!isset(self::$instance)) {  //Checa se já existe uma instância;
               try
               {
-                  self::$instance = new PDO('mysql:host=localhost;dbname=Anki2', 'root', '');  //Dados de conexão
+                  self::$instance = new PDO(DB_CONNECT_STRING, DB_USER, DB_PASSWORD);  //Dados de conexão
               }
               catch ( PDOException $e )
               {
