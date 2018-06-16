@@ -11,7 +11,7 @@ class GroupDAO extends AbstractDAO{
 	    foreach ($rows as $row) {
 	        $nome = $row['nome'];
 	    }
-	    return new Grupo($nome, $id);
+	    return new GroupModel($nome, $id);
 	}
 
 	public function getByUserStatement(){
@@ -19,11 +19,16 @@ class GroupDAO extends AbstractDAO{
 	}
 
 	public function getByUser($id){
-		$rows = parent::getByUser($id);
-	    $grupos = [];
-	    foreach ($rows as $row) {
-	        array_push($grupos, $this->getById($row['grupoId']));
-	    }
+        $grupos = [];
+	    if(USE_DATABASE){
+            $rows = parent::getByUser($id);
+            foreach ($rows as $row) {
+                array_push($grupos, $this->getById($row['grupoId']));
+            }
+        }else{
+	        array_push($grupos, new GroupModel('teste', 1));
+        }
+
 	    return $grupos;
 	}
 

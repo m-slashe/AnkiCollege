@@ -1,24 +1,17 @@
 <html>
     <head>
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-        <style> <?php include_once 'app.css'; ?> </style>
+
+        <link rel="icon" type="image/png" href="<?php echo HOST ?>src/assets/favicon.png">
+        <script src="<?php echo HOST ?>lib/jquery-3.3.1.js"></script>
+        <script src="<?php echo HOST ?>lib/bootstrap-4.1.0-dist/js/bootstrap.js"></script>
+        <link rel="stylesheet" type="text/css" href="<?php echo HOST ?>lib/bootstrap-4.1.0-dist/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css"
+              href="<?php echo HOST ?>lib/fontawesome-free-5.0.10/web-fonts-with-css/css/fontawesome-all.css">
     </head>
     <body>
-        <div class="container-fluid" id="app-body">
-            <div class="row">
-                <?php
-
-                if((isset ($_SESSION['login']) == false) and (isset ($_SESSION['senha']) == false))
-                {
-                    unset($_SESSION['login']);
-                    unset($_SESSION['senha']);
-                    include_once 'components/login/login.php';
-                }else{
-                    include_once 'components/menu/menu.php';
-                    include_once 'components/content/content.php';
-                }
-                ?>
-            </div>
-        </div>
+        <?php
+            Util::carregaControlador();
+        ?>
     </body>
 </html>

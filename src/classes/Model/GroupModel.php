@@ -1,6 +1,6 @@
 <?php
 
-class Grupo {
+class GroupModel {
     protected $id;
     protected $nome;
 

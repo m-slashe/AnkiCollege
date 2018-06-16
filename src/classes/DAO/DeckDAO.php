@@ -19,15 +19,22 @@ class DeckDAO extends AbstractDAO{
 	}
 
 	public function getById($id){
-		$rows = parent::getById($id);
-		$perguntas = [];
-	    foreach ($rows as $row) {
-	        array_push($perguntas,new Card($row['perguntaId'],$row['pergunta'],$row['resposta']));
-	        $categoria = $row['categoria'];
-	        $nome = $row['nome'];
-	        $id = $row['deckId'];
-	    }
-	    return new Deck($perguntas, $categoria, $nome, $id);
+        if(USE_DATABASE){
+            $rows = parent::getById($id);
+            $perguntas = [];
+            foreach ($rows as $row) {
+                array_push($perguntas,new CardModel($row['perguntaId'],$row['pergunta'],$row['resposta']));
+                $categoria = $row['categoria'];
+                $nome = $row['nome'];
+                $id = $row['deckId'];
+            }
+            return new DeckModel($perguntas, $categoria, $nome, $id);
+        }else{
+            $cards = [];
+            array_push($cards,new CardModel(1,'maoi','hihi'));
+            array_push($cards,new CardModel(2,'outro','gato'));
+            return new DeckModel($cards, 'seila2', 'seila', 1);
+        }
 	}
 
 	public function getByUserStatement(){
@@ -35,12 +42,16 @@ class DeckDAO extends AbstractDAO{
 	}
 
 	public function getByUser($id){
-		$rows = parent::getByUser($id);
-	    $decks = [];
+        $decks = [];
+	    if(USE_DATABASE){
+            $rows = parent::getByUser($id);
+            foreach ($rows as $row) {
+                array_push($decks, $this->getById($row['deckId']));
+            }
+        }else{
+	        array_push($decks, new DeckModel('?df', 'sdf', 'f', 1));
+        }
 
-	    foreach ($rows as $row) {
-	        array_push($decks, $this->getById($row['deckId']));
-	    }
 	    return $decks;
 	}
 

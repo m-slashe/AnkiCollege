@@ -1,13 +1,13 @@
 <?php
 
-class Usuario {
+class UserModel {
     protected $id;
     protected $username;
     protected $email;
     protected $grupos;
     protected $decks;
 
-    function __construct($id, $username, $email, $grupos, $decks){
+    function __construct($id, $username, $email, $grupos=null, $decks=null){
         $this->decks=$decks;
         $this->grupos=$grupos;
         $this->email=$email;
