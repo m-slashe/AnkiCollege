@@ -3,7 +3,6 @@
 class LoginCtrl {
 
     function form() {
-        echo 'Passou aqui';
         require_once 'login.php';
     }
 
