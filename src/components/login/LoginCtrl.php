@@ -3,7 +3,8 @@
 class LoginCtrl {
 
     function form() {
-        require_once 'login.html';
+        echo 'Passou aqui';
+        require_once 'login.php';
     }
 
     function entrar() {
@@ -28,11 +29,19 @@ class LoginCtrl {
             }
             header('Location: \App\Child');
         } else {
-            include_once 'login.html';
+            include_once 'login.php';
             if (array_key_exists('error', $_SESSION)) {
                 echo $_SESSION['error'];
             };
         }
+    }
+
+    function sair(){
+        session_destroy();
+        unset ($_SESSION['login']);
+        unset ($_SESSION['senha']);
+        unset ($_SESSION['id']);
+        header('Location: \Login\Form');
     }
 
 }

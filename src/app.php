@@ -1,7 +1,7 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-
         <link rel="icon" type="image/png" href="<?php echo HOST ?>src/assets/favicon.png">
         <script src="<?php echo HOST ?>lib/jquery-3.3.1.js"></script>
         <script src="<?php echo HOST ?>lib/bootstrap-4.1.0-dist/js/bootstrap.js"></script>
@@ -11,6 +11,9 @@
     </head>
     <body>
         <?php
+            echo '<style>';
+            include_once 'app.css.php';
+            echo '</style>';
             Util::carregaControlador();
         ?>
     </body>

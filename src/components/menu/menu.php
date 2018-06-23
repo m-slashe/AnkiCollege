@@ -35,6 +35,9 @@
                     <a class="list-group-item list-group-item-dark" data-parent="#sidebar" href="/study">
                         Start
                     </a>
+                    <a class="list-group-item list-group-item-dark" data-parent="#sidebar" href="/Login/Sair">
+                        Sair
+                    </a>
                 </div>
             </div>
             <div class="controller-child">
