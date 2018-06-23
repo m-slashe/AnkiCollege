@@ -3,7 +3,7 @@
         <div class="col-2 offset-5">
             <form method="POST" action="/Login/Entrar" id="formlogin" name="formlogin">
                 <div class="form-group">
-                    <label for="login-username" class="text-white">Usuario</label>
+                    <label for="login-username" class="text-white">Usuário</label>
                     <input id="login-username" class="form-control" type="text" name="username">
                 </div>
                 <div class="form-group">
