@@ -3,12 +3,12 @@
         <div class="col-2 offset-5">
             <form method="POST" action="/Login/Entrar" id="formlogin" name="formlogin">
                 <div class="form-group">
-                    <label class="text-white">Usuario</label>
-                    <input class="form-control" type="text" name="username">
+                    <label for="login-username" class="text-white">Usuario</label>
+                    <input id="login-username" class="form-control" type="text" name="username">
                 </div>
                 <div class="form-group">
-                    <label class="text-white">Senha</label>
-                    <input class="form-control" type="password" name="senha">
+                    <label for="login-password" class="text-white">Senha</label>
+                    <input id="login-password" class="form-control" type="password" name="senha">
                 </div>
                 <input type="submit" value="Entrar">
             </form>
