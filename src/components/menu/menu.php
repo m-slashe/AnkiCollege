@@ -19,12 +19,14 @@
                 </div>
 
                 <div class="list-group panel" id="sidebar">
-                    <a class="list-group-item list-group-item-dark" href="/profile">
+                    <a class="list-group-item list-group-item-dark" href="/App/Child/Profile/main">
                         <i class="fas fa-user-circle"></i> MyProfile
                     </a>
                     <?php
                     MenuCtrl::includeMenuComponent('Deck', $user->getDecks(), '<i class="fas fa-address-book"></i>');
-                    MenuCtrl::includeMenuComponent('Grupo', $user->getGrupos(), '<i class="fas fa-users"></i>');
+                    //Se não tiver comentado n consegue redirecionar a pagina depois de criar uma pergunta
+                    //Como não vai mais existir grupo...
+                    //MenuCtrl::includeMenuComponent('Grupo', $user->getGrupos(), '<i class="fas fa-users"></i>');
                     ?>
                     <a class="list-group-item list-group-item-dark" data-parent="#sidebar" href="/config">
                         <i class="fas fa-cog"></i> Settings

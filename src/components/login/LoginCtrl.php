@@ -3,7 +3,11 @@
 class LoginCtrl {
 
     function form() {
-        require_once 'login.php';
+        if(isset($_SESSION['id']) && isset($_SESSION['login'])){
+            header('Location: \App\Child\Profile\main');
+        }else{
+            require_once 'login.php';
+        }
     }
 
     function entrar() {
@@ -26,7 +30,7 @@ class LoginCtrl {
                 unset ($_SESSION['id']);
                 $_SESSION['error'] += 1;
             }
-            header('Location: \App\Child');
+            header('Location: \App\Child\Profile\main');
         } else {
             include_once 'login.php';
             if (array_key_exists('error', $_SESSION)) {

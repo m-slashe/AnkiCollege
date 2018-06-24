@@ -1,6 +1,6 @@
 <?php
 
-define('USE_DATABASE', false);
+define('USE_DATABASE', true);
 define('DS', DIRECTORY_SEPARATOR);
 define('ABSPATH', dirname(__FILE__) . DS);
 define( 'HOST', 'http://' . $_SERVER['HTTP_HOST'] . '/' );

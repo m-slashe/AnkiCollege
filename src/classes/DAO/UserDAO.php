@@ -36,7 +36,7 @@ class UserDAO extends AbstractDAO {
 
     function getUser($login, $senha) {
         if (USE_DATABASE) {
-            $sql = "select u.usuarioId
+            $sql = "select u.usuarioId, u.username, u.email
             from anki2.usuario u 
             where u.username=:username 
               and u.password=md5(concat(:password,:username))";
@@ -45,7 +45,7 @@ class UserDAO extends AbstractDAO {
             $stmt->bindParam(':password', $senha);
             $result = $stmt->execute();
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $row;
+            return new UserModel($row['usuarioId'],$row['username'],$row['email']);
         }else{
             return new UserModel(1, 'teste', 'seila');
         }

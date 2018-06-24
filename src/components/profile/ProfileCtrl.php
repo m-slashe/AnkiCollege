@@ -3,7 +3,7 @@
 class ProfileCtrl {
 
     function main(){
-        include_once ''
+        include_once 'profile.php';
     }
 
 }

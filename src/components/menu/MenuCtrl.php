@@ -15,6 +15,7 @@ class MenuCtrl {
         foreach ($objectArray as $object) {
             echo "<a class='list-group-item list-group-item-dark subitem' data-parent='#sidebar' href='/App/child/" . $componentName . "/main" . "?id=" . $object->getId() . "'>" . $object->getNome() . "</a>";
         }
+        echo "<a class='list-group-item list-group-item-dark subitem' data-parent='#sidebar' href='/App/child/" . $componentName . "/novo" . $componentName . "'> <i class=\"fas fa-plus-square\"></i> Novo ".$componentName."</a>";
         echo '</div>';
     }
 

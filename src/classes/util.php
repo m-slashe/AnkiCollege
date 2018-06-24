@@ -12,7 +12,7 @@ class Util {
         include(ABSPATH . 'src' . DS . 'components' . DS . 'form' . DS . $component . '.php');
     }
 
-    static function executeStatement($sql, $params){
+    static function executeStatement($sql, $params = []){
         $stmt = Conexao::getInstance()->prepare( $sql );
         foreach ($params as $key => $value) {
             $stmt->bindValue($key, $value);

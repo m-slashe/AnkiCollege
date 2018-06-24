@@ -11,9 +11,9 @@ class DeckDAO extends AbstractDAO{
 	                    r.texto resposta, 
 	                    u.username criador  
 	                    from anki2.deck d  
-	                    inner join anki2.pergunta p  using(deckId)  
-	                    inner join anki2.resposta r  using(respostaId)  
-	                    inner join anki2.usuario u  on u.usuarioId = p.criador  
+	                    left join anki2.pergunta p  using(deckId)  
+	                    left join anki2.resposta r  using(respostaId)  
+	                    left join anki2.usuario u  on u.usuarioId = p.criador  
 	                    inner join anki2.categoria c  using(categoriaId)
 	                    where d.deckId=:id;";
 	}
