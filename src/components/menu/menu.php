@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="list-group panel" id="sidebar">
-                    <a class="list-group-item list-group-item-dark" href="/App/Child/Profile/main">
+                    <a class="list-group-item list-group-item-dark" href="/profile">
                         <i class="fas fa-user-circle"></i> MyProfile
                     </a>
                     <?php
@@ -34,6 +34,9 @@
                     </a>
                     <a class="list-group-item list-group-item-dark" data-parent="#sidebar" href="/study">
                         Start
+                    </a>
+                    <a class="list-group-item list-group-item-dark" data-parent="#sidebar" href="/Login/Sair">
+                        Sair
                     </a>
                 </div>
             </div>

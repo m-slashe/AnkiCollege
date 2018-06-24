@@ -1,27 +1,17 @@
-<?php
-    include_once 'login.css';
-    include_once ABSPATH.'src'.DS.'classes'.DS.'util.php';
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $login = $_POST['username'];
-        $senha = $_POST['senha'];
-
-        $userDao = new UserDAO();
-        $user = $userDao->getUser($login, $senha);
-        if($user) {
-            $_SESSION['login'] = $login;
-            $_SESSION['senha'] = $senha;
-            $_SESSION['id'] = $user->getId();
-            unset ($_SESSION['error']);
-        } else {
-            unset ($_SESSION['login']);
-            unset ($_SESSION['senha']);
-            unset ($_SESSION['id']);
-            $_SESSION['error'] += 1;
-        }
-        header('location:index.php');
-     }else{
-        include_once 'login.html';
-        if(array_key_exists('error', $_SESSION)){
-            echo $_SESSION['error'];
-        };
-    }
+<div id="login" class="container fill">
+    <div class="row align-items-center fill">
+        <div class="col-2 offset-5">
+            <form method="POST" action="/Login/Entrar" id="formlogin" name="formlogin">
+                <div class="form-group">
+                    <label for="login-username" class="text-white">Usuário</label>
+                    <input id="login-username" class="form-control" type="text" name="username">
+                </div>
+                <div class="form-group">
+                    <label for="login-password" class="text-white">Senha</label>
+                    <input id="login-password" class="form-control" type="password" name="senha">
+                </div>
+                <input type="submit" value="Entrar">
+            </form>
+        </div>
+    </div>
+</div>
