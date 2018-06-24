@@ -1,42 +1,45 @@
-<div class="col-md-2" id="app-menu">
-    <style> <?php include_once 'menu.css'; ?> </style>
-    <div id="menu">
+<div id="app-menu">
+    <?php include_once 'menu.css'; ?>
+    <?php
+        if (USE_DATABASE) {
+            $id = $_SESSION['id'];
+        } else {
+            $id = 1;
+        }
+        $userDao = new UserDAO();
+        $user = $userDao->getUserById($id);
+        $_SESSION['user'] = $user;
+    ?>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="menu">
+                <div class="avatar-container">
+                    <img class="img" src="<?php echo HOST ?>src/assets/avatars/1.png" alt="Avatar" align="middle"/>
+                    <div class="middle">Escolher Imagem</div>
+                </div>
 
-        <div class="avatar-container">
-            <img class="img" src="src/assets/profile.png" alt="Avatar" align="middle"/>
-            <div class="middle">Teste</div>
-        </div>
-
-        <div class="list-group panel" id="sidebar">
-            <a class="list-group-item list-group-item-dark" href="/profile">
-                <i class="fas fa-user-circle"></i> MyProfile
-            </a>
-            <a class="list-group-item list-group-item-dark collapsed" data-toggle="collapse" data-parent="#sidebar" href="#decks">
-                <i class="fas fa-address-book"></i> Decks <span class="badge badge-dark badge-pill">1</span>
-            </a>
-            <div class="collapse" id="decks">
-                <a class="list-group-item list-group-item-dark subitem" data-parent="#sidebar" href="/deck?id=1">Deck1</a>
+                <div class="list-group panel" id="sidebar">
+                    <a class="list-group-item list-group-item-dark" href="/App/Child/Profile/main">
+                        <i class="fas fa-user-circle"></i> MyProfile
+                    </a>
+                    <?php
+                    MenuCtrl::includeMenuComponent('Deck', $user->getDecks(), '<i class="fas fa-address-book"></i>');
+                    MenuCtrl::includeMenuComponent('Grupo', $user->getGrupos(), '<i class="fas fa-users"></i>');
+                    ?>
+                    <a class="list-group-item list-group-item-dark" data-parent="#sidebar" href="/config">
+                        <i class="fas fa-cog"></i> Settings
+                    </a>
+                    <a class="list-group-item list-group-item-dark" data-parent="#sidebar" href="/index">
+                        Card Test
+                    </a>
+                    <a class="list-group-item list-group-item-dark" data-parent="#sidebar" href="/study">
+                        Start
+                    </a>
+                </div>
             </div>
-            <a class="list-group-item list-group-item-dark collapsed" data-toggle="collapse" data-parent="#sidebar" href="#grupos">
-                <i class="fas fa-users"></i> Grupos <span class="badge badge-dark badge-pill">2</span>
-            </a>
-            <div class="collapse" id="grupos">
-                <a class="list-group-item list-group-item-dark subitem" data-parent="#sidebar" href="/group/1">
-                    Grupo1
-                </a>
-                <a class="list-group-item list-group-item-dark subitem" data-parent="#sidebar" href="/group/2">
-                    Grupo2
-                </a>
+            <div class="controller-child">
+                <?php Util::loadChild() ?>
             </div>
-            <a class="list-group-item list-group-item-dark" data-parent="#sidebar" href="/config">
-                <i class="fas fa-cog"></i> Settings
-            </a>
-            <a class="list-group-item list-group-item-dark" data-parent="#sidebar" href="/index">
-                Card Test
-            </a>
-            <a class="list-group-item list-group-item-dark" data-parent="#sidebar" href="/study">
-                Start
-            </a>
         </div>
     </div>
 </div>

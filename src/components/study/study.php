@@ -1,6 +1,6 @@
 <?php $cards = $params ?>
-<style><?php include_once 'study.css' ?></style>
-<script><?php include_once 'study.js' ?></script>
+<?php include_once 'study.css' ?>
+<?php include_once 'study.js' ?>
 <div id="study">
     <div id="pergunta"><?php echo $cards[0]->pergunta ?></div>
     <div id="resposta" style="display: none"><?php echo $cards[0]->resposta ?></div>

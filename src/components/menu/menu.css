@@ -1,3 +1,4 @@
+<style>
 .avatar-container {
     width: 100%;
 }
@@ -33,6 +34,26 @@
     text-align: center;
 }
 
+.subitem{
+    background-color: #AAAAAA;
+}
+
 #sidebar {
     margin-top: 25px;
 }
+
+#app-menu {
+    padding: 0;
+    height: 100%;
+    margin: 0;
+}
+
+#menu {
+    height: 100%;
+    width: 20%;
+}
+
+.controller-child {
+    width: 80%;
+}
+</style>

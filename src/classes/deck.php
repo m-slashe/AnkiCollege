@@ -8,10 +8,18 @@ class Deck {
     protected $usuarios;
     protected $grupos;
 
-    function __construct($perguntas, $categoria, $nome){
+    function __construct($perguntas, $categoria, $nome, $id){
         $this->perguntas=$perguntas;
         $this->categoria=$categoria;
         $this->nome=$nome;
+        $this->id=$id;
+    }
+
+    public function getId(){
+        return $this->id;
+    }
+    public function getNome(){
+        return $this->nome;
     }
 
     function escreverPerguntas(){
@@ -19,4 +27,5 @@ class Deck {
             includeComponent('card', $pergunta);
         }
     }
+
 }
